@@ -32,8 +32,67 @@ namespace ShootingDice
 
             Console.WriteLine("-------------------");
 
+            SmackTalkingPlayer smackTalk = new SmackTalkingPlayer();
+            smackTalk.Name = "Bill Smacktalk";
+            smackTalk.Taunt = "I'm better than you neener neener";
+
+            large.Play(smackTalk);
+
+            Console.WriteLine("-------------------");
+
+            Player plusOne = new OneHigherPlayer();
+            plusOne.Name = "Iwin Fairly";
+
+            plusOne.Play(player1);
+
+            Console.WriteLine("-------------------");
+
+            Player human = new HumanPlayer();
+            human.Name = "Fleshbag";
+
+            plusOne.Play(human);
+
+            Console.WriteLine("-------------------");
+
+            CreativeSmackTalkingPlayer wiseGuy = new CreativeSmackTalkingPlayer();
+            wiseGuy.Name = "Willy Smacktalk";
+            wiseGuy.Taunts = new List<string>()
+                {
+                    ":P",
+                    "you stink",
+                    "i'm better",
+                    "i'll take your lunch money"
+                };
+            
+            smackTalk.Play(wiseGuy);
+
+            Console.WriteLine("-------------------");
+
+            Player soreLoser = new SoreLoserPlayer();
+            soreLoser.Name = "Jury Byrd";
+
+            soreLoser.Play(human);
+
+            Console.WriteLine("-------------------");
+
+            Player upHalf = new UpperHalfPlayer();
+            upHalf.Name = "Sora Chung";
+
+            upHalf.Play(player2);
+
+            Console.WriteLine("-------------------");
+
+            Player upHalfSoreLoser = new SoreLoserUpperHalfPlayer();
+            upHalfSoreLoser.Name = "Fred Schmidt";
+
+            upHalfSoreLoser.Play(large);
+
+            Console.WriteLine("-------------------");
+
+
             List<Player> players = new List<Player>() {
-                player1, player2, player3, large
+                player1, player2, player3, large, smackTalk, plusOne, human, wiseGuy, soreLoser, upHalf, upHalfSoreLoser
+
             };
 
             PlayMany(players);
